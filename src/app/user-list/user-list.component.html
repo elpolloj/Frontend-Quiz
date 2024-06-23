@@ -1,0 +1,14 @@
+<div class="user-list-container">
+  <mat-card *ngFor="let user of users" @slideIn>
+    <img mat-card-avatar [src]="user.avatar" alt="{{ user.first_name }}">
+    <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+    <mat-card-subtitle>ID: {{ user.id }}</mat-card-subtitle>
+    <button mat-button (click)="viewUser(user.id)">View Details</button>
+  </mat-card>
+  <mat-paginator
+    [length]="totalUsers"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

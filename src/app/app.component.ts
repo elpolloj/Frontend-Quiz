@@ -1,13 +1,26 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { LoadingService } from './loading.service';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { slideInAnimation } from './animation';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, RouterModule, HeaderComponent, MatProgressSpinnerModule],
+  animations: [slideInAnimation]
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'angular-quiz';
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+  loading$ = this.loadingService.loading$;
+
+  constructor(private loadingService: LoadingService) {}
 }

@@ -1,0 +1,46 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .welcome-card {
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #3f51b5; /* Optional: change card background for better contrast */
+    color: #ffffff; 
+    align-items: center; 
+  }
+  
+  .mat-card-title, .mat-card-content p {
+    color: #ffffff; /* Light color text */
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px; /* Add some space between title and content */
+  }
+  
+  .mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content vertically */
+  }
+  
+  .mat-card-content p {
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+  button[mat-raised-button] {
+    margin-top: 20px;
+    background-color: #ffffff; /* White background for contrast */
+    color: #3f51b5; /* Button text color */
+  }
+  
